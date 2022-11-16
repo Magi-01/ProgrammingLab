@@ -1,6 +1,6 @@
 values = []
 
-file_name = open('shampoo_sales.csv')
+file_name = open('C:/Users/mutua/Documents/Python_CVS_TXT/shampoo_sales.csv')
 
 def sum_cvs(file_name):
     for line in file_name:
