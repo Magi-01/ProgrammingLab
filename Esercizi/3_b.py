@@ -1,7 +1,5 @@
 values = []
 
-#file_name = open('shampoo_sales.csv','r')
-
 def sum_cvs(file_name):
     for line in file_name:
       elements = line.split(',')
@@ -17,11 +15,3 @@ def sum_cvs(file_name):
       risultato += float(item)
      
     return risultato
-
-
-
-#risultato = sum_cvs(file_name)
-"""if risultato == None:
-  print ("You sum is None")
-if risultato != None:
-  print ("You sum is %f" %risultato)"""
