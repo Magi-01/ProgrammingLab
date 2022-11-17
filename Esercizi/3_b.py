@@ -20,8 +20,8 @@ def sum_cvs(file_name):
 
 
 
-risultato = sum_cvs(file_name)
-if risultato == None:
+#risultato = sum_cvs(file_name)
+"""if risultato == None:
   print ("You sum is None")
 if risultato != None:
-  print ("You sum is %f" %risultato)
+  print ("You sum is %f" %risultato)"""
