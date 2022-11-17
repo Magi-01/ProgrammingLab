@@ -1,3 +1,5 @@
+file_name = 'shampoo_sales.csv'
+
 def sum_csv(file_name):
   values = []
   my_file = open(file_name,'r')
@@ -12,7 +14,11 @@ def sum_csv(file_name):
   risultato = 0
   #print (values)
   for item in values:
+    try:
       risultato += float(item)
+    except ValueError:
+      risultato = risultato
   if risultato == 0:
-    return None
+    return "None"
   return risultato
+print(sum_csv(file_name),None)
