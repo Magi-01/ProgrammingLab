@@ -1,22 +1,34 @@
 values = []
 
-file_name = open('C:/Users/User_name/Documents/Python_CVS_TXT/shampoo_sales.txt')
+file_name_open = open('C:/Users/User_name/Documents/Python_CVS_TXT/shampoo_sales.txt','rw')
+
+file_name = file_name_open.open()
+#file_name = ("file_name and location", "type of operation ('r'=read,'w'=write,'rw'=read and write)")
+
+#print(file_name.readline()) prints one line one after the other and if there is no other line prints NONE vantaggio e se hai 12GB di file, opera su un pezzo alla volta invece di caricare tutta la ram
+
+#.split() non toglie i spazi, lo dovete fare manualmente
+
+#float() and int() are functions that convert string into float or integer repectevely. unlike c/c++ it does not convert char caracters into ascii
+
+#.append() appends the value to the array
 
 
 
 def sum_cvs(file_name):
-    from itertools import islice
-    for line in islice(file_name,1,39):
-        elements = line.split(',')
+  #row_x = sum(1 for line in file_name)
+  #from itertools import islice
+  for line in file_name:
+      elements = line.split(',')
 
-        value = float(elements[1])
-
+      if elements[0] != 'Date':
+        value = elements[1]
         values.append(value)
 
-
-    risultato = sum(values)
+  values_Space = values.strip('\n')
+  risultato = sum(float(values_Space))
      
-    return risultato
+  return risultato
 
 
 
@@ -25,3 +37,5 @@ if risultato == None:
   print ("You sum is None")
 if risultato != None:
   print ("You sum is %d" %risultato)
+
+file_name_open.close()
