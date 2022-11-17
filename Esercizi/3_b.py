@@ -1,6 +1,6 @@
 values = []
 
-file_name = open('shampoo_sales.csv','r')
+#file_name = open('shampoo_sales.csv','r')
 
 def sum_cvs(file_name):
     for line in file_name:
