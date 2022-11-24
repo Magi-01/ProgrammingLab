@@ -1,7 +1,6 @@
+file_name = 'shampoo_sales.csv'
+
 class file_name_op():
-  def __iter__(self):
-    return iter(self.pars_file())
-  
   def pars_file(self):
     values = []
     for line in self.f:
@@ -26,3 +25,6 @@ def sum_csv(file_name):
   if risultato == 0:
     return None
   return risultato
+
+get_sum = sum_csv(file_name)
+print(get_sum)
