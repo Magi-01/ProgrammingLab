@@ -7,3 +7,6 @@ def main():
   n = int(input("Insert the maximum: "))
   m = sum(n)
   print("Your sum is %d" %m)
+  #ladiladila
+
+main()
