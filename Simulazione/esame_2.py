@@ -49,7 +49,7 @@ class Diff:
 
         #does the computation where for every window of size 2,
         #the 2 elements are subtracted, divide by ratio then
-        #stored in a new list called avg that is the returned
+        #stored in a new list called avg that is then returned
         for i in range(len(data)):
             if wind < len(data):
                 for j in range (i,wind+1):
