@@ -5,25 +5,25 @@ class ExamException(Exception):
 class MovingAverage:
     def __init__(self,window):
         if not isinstance(window,int):
-            raise ExamException('Errore, lista vuota')
+            raise ExamException('Division by non integer.')
         if window < 1:
-            raise ExamException('Errore, lista vuota')
+            raise ExamException('Window < 1.')
         self.window = window
 
     def compute(self,data):
         if data == [] or data == None or not isinstance(self.window,int):
-            raise ExamException('Errore, lista vuota')
+            raise ExamException('Error, list is empty')
 
         if not isinstance(data,list):
             if self.window > 1:
-                raise ExamException('Errore, lista vuota')
+                raise ExamException('Error, data is not a list')
             return data
 
         if self.window > len(data):
-            raise ExamException('Errore, lista vuota')
+            raise ExamException('Error, window > than length of data')
 
         if self.window == 0:
-            raise ExamException('Errore, lista vuota')
+            raise ExamException('Error, bug found (window not checked on init)')
 
         if self.window == 1:
             return data

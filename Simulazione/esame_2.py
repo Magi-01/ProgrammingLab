@@ -8,11 +8,11 @@ class Diff:
     def __init__(self,ratio=1):
         #checks if ratio is a number bigger than 0 else raises an ExamException
         if ratio == None:
-            raise ExamException('Errore, ratio of None type')
+            raise ExamException('Error, ratio of None type')
         if type(ratio) == str:
-            raise ExamException('Errore, ratio of str type')
+            raise ExamException('Error, ratio of str type')
         if ratio <= 0:
-            raise ExamException('Errore, division by 0 or <0')
+            raise ExamException('Error, division by 0 or ratio < 0')
         #assigns ratio as attribute of Diff
         self.ratio = ratio
 
@@ -20,28 +20,28 @@ class Diff:
     def compute(self,data):
         #checks if data is empty
         if data == [] or data == None:
-            raise ExamException('Errore, lista vuota')
+            raise ExamException('Error, empty list')
 
         #in case of a bug, checks if ratio is 0 or none again
         if self.ratio == 0 or self.ratio == None:
-            raise ExamException('Errore, bug found.')
+            raise ExamException('Error, bug found.')
 
         #checks if data is a list
         if not isinstance(data,list):
-            raise ExamException('Errore, data is not list')
+            raise ExamException('Error, data is not list')
 
         #checks if the length of data (list) is <= 1
         #if so raises ExamException because we can't have a ratio of a sigle
         #element
         if len(data) <= 1:
-            raise ExamException('Errore, data is not list')
+            raise ExamException('Error, data is not list')
 
         #checks if the elements inside data are convertable to int or float
         for item in data:
             try:
                 int(item) or float(item)
             except:
-                raise ExamException('Errore, lista non interamente di interi')
+                raise ExamException('Error, list not completly of integers')
 
         avg = []
         wind = 1
