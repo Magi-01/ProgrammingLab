@@ -1,4 +1,4 @@
-#Program that takes a file as input (given the file has two digits separated by a comma representing epoch and temp) and return the __ per every epoch
+#Program that takes a file as input (given the file has two digits separated by a comma representing epoch and temp) and return the temperature per every epoch
 
 
 #Class that catches Exception and, in this case, passes them to
@@ -135,7 +135,7 @@ def compute_daily_max_difference(time_series):
                 if epoch[i+1] - epoch[i] < 86400:
                     max = temprt[i]
                     min = temprt[i]
-                #else; the first element of __ is None
+                #else; the first element of temperature range is None
                 #while the max_temp and min_temp = second element of temp
                 else:
                     m = None
@@ -156,8 +156,9 @@ def compute_daily_max_difference(time_series):
                         min = temprt[i]
                 #else finds the max between the first element and the second
                 #(same for min), and if and only if the current and previous
-                #epochs are on the same day, then the __ = max - min
-                #else the __ is None
+                #epochs are on the same day, 
+                #then the temperature range = max - min
+                #else the temperature range is None
                 else:
                     if max < temprt[i]:
                         max = temprt[i]
@@ -190,11 +191,11 @@ def compute_daily_max_difference(time_series):
                     #checks if the the counter is 1 (meaning only one epoch
                     #in the previous day), and if the diff between the
                     #current epoch and previous is less than a day, if so
-                    #then the __ is none
+                    #then the temperature range is none
                     if count == 1 and epoch[i] - epoch[i-1] < 86400:
                         m = None
                         temp_diff.append(m)
-                    #else the __ is max - min
+                    #else the temperature range is max - min
                     else:
                         m = max - min
                         temp_diff.append(m)
@@ -213,7 +214,7 @@ def compute_daily_max_difference(time_series):
                 #if then diff between the current epoch and the prev is
                 #< 86400 then checks if the max(/min) is >(/<) than
                 #previous and updates respectively
-                #the __ = min - max
+                #the temperature range = min - max
                 if epoch[i] - epoch[i-1] < 86400:
                     if max < temprt[i]:
                         max = temprt[i]
@@ -221,10 +222,11 @@ def compute_daily_max_difference(time_series):
                         min = temprt[i]
                     m = max - min
                 #else, checks if the previos epoch and the one before were
-                #on the same day, if they were then the __ = min - max
+                #on the same day, if they were 
+                #then the temperature range = min - max
                 #otherwise given that the previous 2 epochs were not on the
                 #same day and neither is the current one, then
-                #__ = [None,None]
+                #temperature range = [None,None]
                 else:
                     if epoch[i-1] - epoch[i-2] < 86400:
                         m = max - min
