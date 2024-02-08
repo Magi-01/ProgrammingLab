@@ -1,3 +1,5 @@
+
+name  = "C:/Users/mutua/Documents/Repository/ProgrammingLab/Simulazione/data.csv"
 #Program that takes a file as input (given the file has two digits separated by a comma representing epoch and temp) and return the temperature per every epoch
 
 
@@ -56,11 +58,11 @@ class CSVTimeSeriesFile:
         comp = []
         for element in data:
             try:
-                int(element[0])
+                element[0] = int(float(element[0]))
             except:
                 pass
             try:
-                float(element[1])
+                element[1] = float(element[1])
                 comp.append(element)
             except:
                 pass
@@ -237,3 +239,10 @@ def compute_daily_max_difference(time_series):
                 temp_diff.append(m)
 
         return temp_diff
+time_series_file = CSVTimeSeriesFile(name)
+time_series = time_series_file.get_data()
+for item in time_series:
+    print("epoch: ",item)
+diff = compute_daily_max_difference(time_series)         
+for item in diff:
+    print("temp diff: ",item)
