@@ -1,5 +1,17 @@
 arr = [2,3,4,-5,1]
 
+# Merge sort sorts a list by;
+# Dividing the list in half untill the dimension is <= 1 after which recostructs the list while ordering using Merge:
+#  iterates through the length of the right sub-array and left sub-array:
+#   if the value of the left subarray is larger than the right, append the 
+#   right add add it's step otherwise do same for left. At the end add all the 
+#   values that remain if the step for one of the subarrays stopped earlier 
+#   than the other
+
+
+# Time Complexity O(nlog(n))
+# Space Complexity O(1)
+
 def merge(left, right):
     result = []
     i = j = 0

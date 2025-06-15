@@ -1,5 +1,19 @@
 arr = [2,3,4,-5,1]
 
+# Heap sort sorts a list by;
+# Heapifying the list which means:
+#  creating a binary tree that follows the rules:
+#    Min-Heap: Parent <= all children
+#    Max-heap: Parent >= all children
+#    Note: all levels but the last must be filled (Complete bianry tree)
+#  Start from mid-point-1:
+#   If the children are >= (or <=) swap and then recursively call the previous values. Rinse and repeat untill the root
+
+# Then Heapsort is called where we echange the value at position 0 (root) and position n-(i+1) last child. We then call Heapsort again now with the start as the root
+# Repeat untill i = n
+# Time Complexity O(nlog(n))
+# Space Complexity O(1)
+
 def heapify(arr, n, i):
      # Initialize largest as root
     largest = i 
