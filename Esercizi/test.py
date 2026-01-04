@@ -1,15 +1,18 @@
-k = int(input("how many numbers do you want to insert: "))
-my_list = []
+def maxArea(height) -> list:
+  n = len(height)
 
+  if n <= 2:
+    return []
 
-for i in range (0,k):
-  my = int(input("Insert your numbers: "))
-  my_list.append(my)
+  arr = []
 
+  for i in range(n):
+    for j in range(i+1, n):
+      for k in range(j+1, n):
+        if height[i] + height[j] + height[k] == 0:
+          arr.append([height[i], height[j], height[k]])
+  
+  return arr
 
-
-m = 0
-
-for i in range(len(my_list)):
-  m = my_list[i] + m
-print ("Your sum is %d" %m)
+height = [-1,0,1,2,-1,-4]
+print(maxArea(height))
