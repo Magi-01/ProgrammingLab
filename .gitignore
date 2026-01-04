@@ -1,1 +1,26 @@
+# Virtual environments
+myapp/
 .venv/
+.env/
+.vscode/
+
+
+# Python Cache and build files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+build/
+dist/
+*.egg-info/
+
+# Data and Module Types
+*.vrp
+*.pkl
+*.pt
+*.png
+*.zip
+
+# Logs
+*.log
+*.tmp
