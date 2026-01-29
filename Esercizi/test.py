@@ -1,18 +1,26 @@
-def maxArea(height) -> list:
-  n = len(height)
+import timeit
 
-  if n <= 2:
-    return []
+def combinationSum(candidates, target): 
+        results = []
+        def rec(i, current, remaining):
+          # base cases
+          if remaining == 0:
+              results.append(current[:])
+              return
+          if remaining < 0 or i == len(candidates):
+              return
 
-  arr = []
+          # TAKE candidates[i]
+          rec(i, current + [candidates[i]], remaining - candidates[i])
 
-  for i in range(n):
-    for j in range(i+1, n):
-      for k in range(j+1, n):
-        if height[i] + height[j] + height[k] == 0:
-          arr.append([height[i], height[j], height[k]])
-  
-  return arr
+          # LEAVE candidates[i]
+          rec(i + 1, current, remaining)
 
-height = [-1,0,1,2,-1,-4]
-print(maxArea(height))
+        rec(0, [], target)
+        return results
+
+
+nums = [3,6,7,2]
+k = 7
+print(combinationSum(nums, k))
+print(timeit.timeit("combinationSum(nums, k)", number=10,globals=globals()))
