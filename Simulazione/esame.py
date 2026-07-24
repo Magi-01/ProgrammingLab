@@ -241,8 +241,24 @@ def compute_daily_max_difference(time_series):
         return temp_diff
 time_series_file = CSVTimeSeriesFile(name)
 time_series = time_series_file.get_data()
-for item in time_series:
-    print("epoch: ",item)
+#for item in time_series:
+#    print("epoch: ",item)
 diff = compute_daily_max_difference(time_series)         
-for item in diff:
-    print("temp diff: ",item)
+#for item in diff:
+#    print("temp diff: ",item)
+
+import numpy as np
+t = np.array([time_series[i][0] for i in range(len(time_series))])
+v = np.array([time_series[i][1] for i in range(len(time_series))])
+d = np.array(diff)
+m = min(t)
+t2 = [i-m for i in t]
+t2 = np.array(t2)
+t2 = t2/3600
+
+import matplotlib.pyplot as plt
+
+plt.plot(t2,v)
+plt.xlabel('time(hours)')
+plt.ylabel('value')
+plt.show()
