@@ -1,9 +1,7 @@
 # Virtual environments
 myapp/
-.venv/
+venv/
 .env/
-.vscode/
-
 
 # Python Cache and build files
 __pycache__/
@@ -14,13 +12,32 @@ build/
 dist/
 *.egg-info/
 
+# Document files
+*.yaml
+*.toc
+*.tex
+*.aux
+*.out
+*.gz
+
 # Data and Module Types
 *.vrp
 *.pkl
 *.pt
 *.png
+*.jpg 
+*.cpg
+*.shp
+*.shx
+*.pth
+*.json
 *.zip
+*.csv
+*.7z
+*.bz2
+*.npy
 
 # Logs
+*.txt
 *.log
 *.tmp
